@@ -22,9 +22,21 @@ def register(request):
             login(request,user)
             messages.success(request,'Register Successfull')
 
-            return redirect('blog_list') 
+            return redirect('list') 
     context={
         'form_profile':form_profile,
         'form_user':form_user
     }
     return render(request,'user/register.html',context)
+
+
+
+def login(request):
+    form=AuthenticationForm(request,data=request.POST)
+    if form.is_valid():
+        user=form.get_user
+        login(request,user)
+        messages.success(request,'login successful')
+        return redirect('list')
+
+    return render(request,'user/login.html',{'form':form})
