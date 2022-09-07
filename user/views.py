@@ -7,6 +7,7 @@ from django.contrib import messages
 
 # Create your views here.
 
+
 def register(request):
     form_user=UserForm()
     form_profile=UserProfileForm()
