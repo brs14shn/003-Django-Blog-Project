@@ -47,3 +47,7 @@ def login(request):
        form=AuthenticationForm() 
 
     return render(request,'user/login.html',{'form':form})
+def profile_page(request):
+    profile = UserCreationForm(request.POST)
+
+    return render(request, 'user/profile_page.html', {'profile': profile})
