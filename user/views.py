@@ -6,6 +6,9 @@ from user.forms import UserForm, UserProfileForm
 from django.contrib import messages
 
 # Create your views here.
+def logout(request):
+     logout(request)
+     return redirect('home')
 
 
 def register(request):
@@ -39,5 +42,7 @@ def login(request):
         login(request,user)
         messages.success(request,'login successful')
         return redirect('list')
+    else:
+       form=AuthenticationForm() 
 
     return render(request,'user/login.html',{'form':form})
