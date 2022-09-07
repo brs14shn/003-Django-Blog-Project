@@ -1,14 +1,14 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import authenticate,login,logout
-from .forms import UserForm, UserProfileForm
+from user.forms import UserForm, UserProfileForm
 
 from django.contrib import messages
 
 # Create your views here.
 
 def register(request):
-    form_user=userForm()
+    form_user=UserForm()
     form_profile=UserProfileForm()
     if request.method=="POST":
         form_user=UserForm(request.POST)
