@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
     integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" />
     <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+  />
    
     <title>My BlogApp</title>
    
@@ -18,6 +23,7 @@
  {% include 'blog/navbar.html' %}
   {% block content %}
   {% endblock content %}
+  {% include 'blog/footer.html' %}
 </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
