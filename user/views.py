@@ -6,10 +6,10 @@ from user.forms import UserForm, UserProfileForm
 from django.contrib import messages
 
 # Create your views here.
-def logout(request):
-     messages.success(request, 'You logged out') 
-     logout(request)
-     return redirect('home')
+# def logout(request):
+#      messages.success(request, 'You logged out') 
+#      logout(request)
+#      return redirect('home')
 
 
 def register(request):
