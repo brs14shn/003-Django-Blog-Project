@@ -24,10 +24,10 @@ def register(request):
             profile.user=user
             profile.save()
 
-            login(request,user)
+            # login(request,user)
             messages.success(request,'Register Successfull')
 
-            return redirect('list') 
+            return redirect('home') 
     context={
         'form_profile':form_profile,
         'form_user':form_user
@@ -39,14 +39,16 @@ def register(request):
 def login(request):
     form=AuthenticationForm(request,data=request.POST)
     if form.is_valid():
-        user=form.get_user
-        login(request,user)
-        messages.success(request,'login successful')
-        return redirect('list')
+        user=form.get_user()
+        login(request, user)
+        if user:
+            messages.success(request,'login successful')
+            return redirect('home')
     else:
        form=AuthenticationForm() 
 
     return render(request,'user/login.html',{'form':form})
+
 def profile_page(request):
     profile = UserCreationForm(request.POST)
 
