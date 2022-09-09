@@ -12,7 +12,7 @@ def home(request):
     return render(request, 'blog/home.html',context)
 
 #TODO  CRUD/CREATE(POST)---------BLOG-ADD----------
-@login_required
+@login_required(login_url ='/auth/login')
 def post_add(request):
     form=NewPostForm()
     if request.method=="POST":
@@ -29,3 +29,17 @@ def post_add(request):
     }
     return render(request,"blog/blog_add.html",context)
 
+#!-------------UPDATE----------
+def post_update(request,id ):
+    post=Post.objects.get(id=id)
+    form=NewPostForm(instance=post)
+    if request.method=='POST':
+        form=NewPostForm(request.POST,instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    
+    context={
+        'form':form
+    }
+    return render(request,'blog/blog.html',context)

@@ -37,16 +37,22 @@ def register(request):
 
 
 def login(request):
-    form=AuthenticationForm(request,data=request.POST)
+    form=AuthenticationForm(request,data=request.POST or None)
     if form.is_valid():
-        user=form.get_user()
+        #  username = form.cleaned_data.get('username')
+        #  password = form.cleaned_data.get('password1')
+
+        #  user = authenticate(username=username, password=password)
+         user=form.get_user()
         
-        if user:
+        
+         if user:
             messages.success(request,'login successful')
-            login(request, user)
+            login(request,user)
             return redirect('home')
     else:
        form=AuthenticationForm() 
+    
 
     return render(request,'user/login.html',{'form':form})
 
