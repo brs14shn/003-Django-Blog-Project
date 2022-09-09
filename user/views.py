@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import authenticate,login,logout
-from user.forms import UserForm, UserProfileForm
+from .forms import UserForm, UserProfileForm
 
 from django.contrib import messages
 

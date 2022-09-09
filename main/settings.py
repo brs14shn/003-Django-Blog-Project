@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     "user",
     "blog",
     'crispy_forms',
-     "crispy_bootstrap5",
+    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -124,12 +124,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 #? MEDİA
 MEDIA_URL="media/"
-#MEDIA_ROOT = BASE_DIR / 'post_image/'
-MEDIA_ROOT=os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = BASE_DIR / 'post_image/'
+#MEDIA_ROOT=os.path.join(BASE_DIR, "media")
 
 #CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # Default primary key field type

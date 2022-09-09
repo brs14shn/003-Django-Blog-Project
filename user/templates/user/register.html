@@ -14,7 +14,10 @@
 
 <h3>Fill out the form please!</h3>
 <form action="" method="post" enctype="multipart/form-data" class="border">
-    {% csrf_token %} {{ form_user | crispy }}
+    {% csrf_token %} 
+    {{ form_user | crispy }}
+    {{ form_profile | crispy }}
+
     <button  type="submit" class="btn btn-outline-info">Sign Up</button>
     {% comment %} <span>Already have a account&nbsp;&nbsp;</span><span><a href="{% url 'login' %}">Log in</a></span> {% endcomment %}
 </form>

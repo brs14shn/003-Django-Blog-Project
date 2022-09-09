@@ -6,13 +6,14 @@
     {% for post in posts %}
     <div  class="col ">
       <div class="card h-100 p-1 shadow" style="width: 400px;box-shadow:4px 4px 4px black">
-        <div class="card-body text-center" style="width: 400px">
+        <div class="card-body text-center" style="width: 400px;">
         
         <img
-          src="{{post.post_image}}"
+          src="{{post.post_image.url}}"
           alt="card_image"
-          class="card__image"
-          width="600"
+          class="card__image rounded"
+          width="30%"
+          
         />     
         <hr>
           
@@ -32,7 +33,7 @@
             <small>{{ post.publish_date }}</small>
           </div>
         </div>
-        <a href="#" class="readmore"><button type="button" class="btn btn-primary">Details</button></a>
+        <a href="#" class="readmore"><button type="button" class="btn btn-primary mt-3">Details</button></a>
       </div>
     </div>
     </div>

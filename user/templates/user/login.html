@@ -8,7 +8,7 @@
  
  <div style="border:1px solid black;border-radius:10px" class="container mt-4 p-3 ">
     <h2>Please Login</h2>
-<form action="" class="form-group" method="post" autocomplete="off" >
+<form action="" class="form-group" method="post" autocomplete="off" enctype="multipart/form-data">
 
     {% csrf_token %}
     {{form | crispy}}
