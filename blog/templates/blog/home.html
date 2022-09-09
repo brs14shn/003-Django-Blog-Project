@@ -1,9 +1,40 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-<h1>Home Page</h1>
-{% if request.user.is_authenticated %}
-<h2>Wellcome {{request.user | capfirst }}!</h2>
-{% else %}
-<h2>Wellcome Guest!</h2>
-{% endif %}
-{% endblock content %}
+<div class="container">
+    <div class="row">
+    {% for post in posts %}
+    <div class="col g-3">
+      <div class="card h-100 border-secondary p-1 shadow" style="width: 400px">
+        <div class="card-body text-center" style="width: 400px">
+        
+        <img
+          src="{{ post.post_image }}"
+          alt="card__image"
+          class="card__image"
+          width="600"
+        />     
+          
+        <div class="card-body mb-auto">
+        <span class="card-title">{{ post.category }}</span>
+        <h4 class="card-title">{{post.title}}</h4>
+        <p class="card-text">{{ post.content|truncatechars:15}}</p>
+        <div>
+          <span><i class="bi bi-heart" style="margin: 2px"></i></span> <small>{{post.blog_like}}</small>
+          <span><i class="bi bi-chat-left-text" style="margin: 2px"></i></i></span> <small>{{post.blog_comment}}</small>
+          <span><i class="bi bi-eye" style="margin: 2px"></i></span> <small>{{post.blog_views}}</small>
+        </div>
+      </div>
+      <div class="card-body mb-auto">
+          <div class="user__info">
+            <span class="card-text">{{ post.user }}</span>
+            <small>{{ post.publish_date }}</small>
+          </div>
+        </div>
+        <a href="#" class="readmore"><button type="button" class="btn btn-primary">Details</button></a>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  </div>
+  </div>
+  {% endblock content %}

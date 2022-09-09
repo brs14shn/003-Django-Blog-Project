@@ -1,6 +1,10 @@
 from django.shortcuts import render,redirect
-
+from .models import Post, Comment, Like
 # Create your views here.
-
+#!  ---------HOME----------
 def home(request):
-    return render(request,"blog/home.html")
+    posts=Post.objects.all()
+    context={
+        "posts":posts
+    }
+    return render(request, 'blog/home.html',context)
