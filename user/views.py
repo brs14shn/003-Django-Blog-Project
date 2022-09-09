@@ -24,7 +24,7 @@ def register(request):
             profile.user=user
             profile.save()
 
-            # login(request,user)
+            login(request,user)
             messages.success(request,'Register Successfull')
 
             return redirect('home') 
@@ -40,9 +40,10 @@ def login(request):
     form=AuthenticationForm(request,data=request.POST)
     if form.is_valid():
         user=form.get_user()
-        login(request, user)
+        
         if user:
             messages.success(request,'login successful')
+            login(request, user)
             return redirect('home')
     else:
        form=AuthenticationForm() 

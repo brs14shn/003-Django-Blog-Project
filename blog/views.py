@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Post, Comment, Like
 from .forms import NewPostForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 #!  ---------HOME----------
 def home(request):
@@ -11,6 +12,7 @@ def home(request):
     return render(request, 'blog/home.html',context)
 
 #TODO  CRUD/CREATE(POST)---------BLOG-ADD----------
+@login_required
 def post_add(request):
     form=NewPostForm()
     if request.method=="POST":
