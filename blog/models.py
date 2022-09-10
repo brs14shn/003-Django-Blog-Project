@@ -32,6 +32,8 @@ class Post(models.Model):
     blog_comment = models.PositiveIntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     
+    
+
     def __str__(self):
         return self.title
 

@@ -8,7 +8,7 @@
     >
     <h2 class="text-center fs-2" style='margin:5px'>Add New Blog</h2>
     <div class="card-body m-4">
-      {% comment %} <img src="{{user.profile_pic}}" alt="{{user}}_avatar"> {% endcomment %}
+     {% comment %} <img src="{{user.profile_pic}}" alt="{{user}}_avatar">  {% endcomment %}
       <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}                   
         {% comment %} {{form.as_p}}	 {% endcomment %}

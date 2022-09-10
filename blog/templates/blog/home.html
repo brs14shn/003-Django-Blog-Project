@@ -9,7 +9,8 @@
         <div class="card-body text-center" style="width: 400px;">
         
         <img
-          src="{{post.post_image.url}}"
+          src="{{post.post_image}}" 
+          
           alt="card_image"
           class="card__image rounded"
           width="30%"
@@ -33,7 +34,7 @@
             <small>{{ post.publish_date }}</small>
           </div>
         </div>
-        <a href="#" class="readmore"><button type="button" class="btn btn-primary mt-3">Details</button></a>
+        <a href="{% url 'detail' post.id %}" class="readmore"><button type="button" class="btn btn-primary mt-3">Details</button></a>
       </div>
     </div>
     </div>
