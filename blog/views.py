@@ -18,10 +18,10 @@ def post_add(request):
     if request.method=="POST":
         form=NewPostForm(request.POST)
         if form.is_valid():
-           postform=form.save()
+           post_form=form.save()
            if "post_image" in request.FILES:
-                postform.post_image=request.FILES.get("post_image")
-                postform.post_image.save()
+               post_form.post_image=request.FILES.get("post_image")
+               post_form.post_image.save()
            return redirect("home")
 
     context={

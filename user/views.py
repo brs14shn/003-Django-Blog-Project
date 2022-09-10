@@ -36,7 +36,7 @@ def register(request):
 
 
 
-def login(request):
+def user_login(request):
     form=AuthenticationForm(request,data=request.POST or None)
     if form.is_valid():
         #  username = form.cleaned_data.get('username')
