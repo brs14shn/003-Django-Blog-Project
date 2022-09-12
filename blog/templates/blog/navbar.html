@@ -19,11 +19,11 @@
       </li>
 
      <li class="nav-item active">
-        <a class="nav-link font-weight-bold text-dark" href="">About</a>
+        <a class="nav-link font-weight-bold text-dark" href="{% url 'about' %}">About</a>
       </li> 
     </ul>
      {% comment %}  !LEFT {% endcomment %}
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto d-flex">
       {% if request.user.is_authenticated %}
       {% if request.user.is_superuser %}
 
@@ -49,8 +49,9 @@
        <a class="nav-link font-weight-bold text-dark" href="{% url 'add'%}">New Post</a> 
       </li>
 
-      <li>
-        <a class="nav-link ml-4 font-weight-bold text-dark" href="">{{ request.user | capfirst }}</a>
+      <li class="ml-5 d-flex">
+        <i class="bi bi-box-arrow-in-right fa-2x text-danger "></i>
+        <a class="nav-link ml-2 font-weight-bold text-danger font-italic" href="">{{ request.user | capfirst }}</a>
     </li>
 
       {% endif %}

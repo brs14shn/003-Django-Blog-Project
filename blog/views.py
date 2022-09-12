@@ -31,6 +31,9 @@ def home(request):
     # }
     # return render(request, 'blog/home.html',context)
 
+def about_page(request):
+       return render(request, 'blog/about.html')
+
 #TODO  CRUD/CREATE(POST)---------BLOG-ADD----------
 
 def post_add(request):
