@@ -135,7 +135,7 @@ STATIC_ROOT = BASE_DIR / 'appFolderName/static/'
 
 #? MEDİA
 MEDIA_ROOT=os.path.join(BASE_DIR, "media")
-MEDIA_URL="/media/post_image/"
+MEDIA_URL="media/"
 #MEDIA_ROOT = BASE_DIR / 'media/'
 
 
