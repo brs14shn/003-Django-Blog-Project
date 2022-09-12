@@ -118,14 +118,26 @@ USE_TZ = True
 
 #? STATİC
 STATIC_URL = "static/"
-#STATIC_ROOT = BASE_DIR / 'blog/static/'
+#STATIC_ROOT = BASE_DIR / 'blog/static'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+'''
+STATIC_URL = 'static/' # başına / koymadan.
+---
+if static in base path:
+STATIC_ROOT = BASE_DIR / STATIC_URL # or STATIC_ROOT = BASE_DIR / 'static/'
+if static in app folder:
+STATIC_ROOT = BASE_DIR / 'appFolderName/static/'
+---
+- Yukarıdaki seçenekler media için de geçerli.
+'''
 
 
 #? MEDİA
-MEDIA_URL="media/"
-MEDIA_ROOT = BASE_DIR / 'media/'
-#MEDIA_ROOT=os.path.join(BASE_DIR, "media")
+MEDIA_ROOT=os.path.join(BASE_DIR, "media")
+MEDIA_URL="/media/post_image/"
+#MEDIA_ROOT = BASE_DIR / 'media/'
+
 
 #CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -135,5 +147,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGIN_URL = "/auth/login"
 
 

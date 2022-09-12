@@ -6,7 +6,7 @@ from .forms import UserForm, UserProfileForm
 from django.contrib import messages
 
 #Create your views here.
-def logout(request):
+def user_logout(request):
      messages.success(request, 'You logged out') 
      logout(request)
      return redirect('home')

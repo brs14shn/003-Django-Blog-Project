@@ -2,14 +2,34 @@ from django.shortcuts import render,redirect
 from .models import Post, Comment, Like
 from .forms import NewPostForm,CommentForm
 from django.contrib.auth.decorators import login_required
+
+# import datetime
+
+from datetime import datetime
+
+# a = datetime.strptime('8/18/2008', date_format)
+# b = datetime.strptime('9/26/2008', date_format)
 # Create your views here.
 #!  ---------HOME----------
 def home(request):
     posts=Post.objects.all()
+    date_format = "%Y/%m/%d"
+    currentdate=datetime.strptime('2022/09/12', date_format)
+    print(currentdate)
     context={
-        "posts":posts
+        "posts":posts,
+        "currentdate":currentdate
     }
     return render(request, 'blog/home.html',context)
+    # posts=[]
+    # if request.user.is_authenticated:
+    #     posts=Post.objects.filter(user=request.user)
+    # form=NewPostForm()
+    # context={
+    #     "posts":posts,
+    #     "form":form
+    # }
+    # return render(request, 'blog/home.html',context)
 
 #TODO  CRUD/CREATE(POST)---------BLOG-ADD----------
 
@@ -42,7 +62,7 @@ def post_update(request,id ):
     context={
         'form':form
     }
-    return render(request,'blog/blog.html',context)
+    return render(request,'blog/blog_update.html',context)
 
 
 @login_required(login_url ='/auth/login')

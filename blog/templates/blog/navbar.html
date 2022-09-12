@@ -1,6 +1,6 @@
 {% load static %}
 
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+<nav class="navbar navbar-toggleable-md navbar-inverse  bg-success">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse"
     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -25,9 +25,19 @@
      {% comment %}  !LEFT {% endcomment %}
     <ul class="navbar-nav ml-auto">
       {% if request.user.is_authenticated %}
+      {% if request.user.is_superuser %}
+
+      <li class="nav-item active">
+        <a class="nav-link" href="/admin">Admin</a>
+    </li>
+    <li class="nav-item active">
+        
+        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+    </li>
+    {% else %}   
        
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'logout_app'%}">Logout</a>
+        <a class="nav-link" href="{% url 'logout'%}">Logout</a>
       </li>
 
       <li class="nav-item active">
@@ -39,6 +49,11 @@
        <a class="nav-link" href="{% url 'add'%}">New Post</a> 
       </li>
 
+      <li>
+        <a class="nav-link" href="">{{ request.user | capfirst }}</a>
+    </li>
+
+      {% endif %}
       {% else %}
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'login' %}">Log In</a>
@@ -51,3 +66,12 @@
     </ul>
   </div>
 </nav>
+{% if messages %} 
+        {% for message in messages %} 
+            {% if message.tags == "warning" %}
+                <div id="warning" class="alert message">{{ message }}</div>
+            {% else %}
+                <div id="success" class="alert alert-danger message">{{ message }}</div>
+            {% endif %} 
+        {% endfor %} 
+    {% endif %}

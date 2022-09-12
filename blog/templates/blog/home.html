@@ -1,25 +1,26 @@
 {% extends 'blog/base.html' %}
 {% block content %}
 {% load static %}
-<div class="container mt-4">
-    <div class="row justify-content-center align-items-center gap-4 mx-auto " style="row-gap:1.5rem;">
+<div class="container mt-4  ">
+  <div class="row my-auto " style="column-gap:.5rem;row-gap:1rem">
     {% for post in posts %}
     <div  class="col ">
-      <div class="card h-100 p-1 shadow" style="width: 400px;box-shadow:4px 4px 4px black">
-        <div class="card-body text-center" style="width: 400px;">
+      <div class="card  p-1 shadow" style="width: 320px;box-shadow:4px 4px 4px black">
+        <div class="card-body text-center" style="width: 320px;">
         
         <img
-          src="{{post.post_image}}" 
+          src="{{post.post_image.url}}" 
           
           alt="card_image"
           class="card__image rounded"
-          width="30%"
+          width="50%"
           
         />     
         <hr>
           
         <div class="card-body mb-auto">
-        <span class="card-title">{{ post.category }}</span>
+        <span class="card-title">{{ post.category | capfirst }}</span>
+        <br><br>
         <h4 class="card-title">{{post.title}}</h4>
         <p class="card-text">{{ post.content|truncatechars:60}}</p>
         <div>
@@ -30,8 +31,9 @@
       </div>
       <div class="card-body mb-auto">
           <div class="user__info">
-            <span class="card-text">{{ post.user }}</span>
-            <small>{{ post.publish_date }}</small>
+           <span class="card-text">{{ user}} | </span> 
+            {% comment %} <small>{{ post.publish_date | date:'Y-m-d'}} - {{currendate}} ago</small> {% endcomment %}
+            <small>{{ post.publish_date }} ago</small>
           </div>
         </div>
         <a href="{% url 'detail' post.id %}" class="readmore"><button type="button" class="btn btn-primary mt-3">Details</button></a>
