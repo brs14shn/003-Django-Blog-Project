@@ -1,6 +1,6 @@
 {% load static %}
 
-<nav class="navbar navbar-toggleable-md navbar-inverse  bg-success">
+<nav class="navbar navbar-toggleable-md navbar-inverse " style="background-color:#CEDDE5;box-shadow:2px 2px 10px black">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse"
     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,17 +9,17 @@
     <img class="me-4" style="width:60px;height:60px;border-radius:50%" src="{% static 'blog/images/foto.png' %}"
       alt="CLARUSWAY_LOGO" />
 
-    <em> My Blog</em></a>
+    <em class="text-dark"> My Blog</em></a>
 
   <div class="collapse navbar-collapse" id="navbarCollapse">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto" >
        {% comment %} !RİGHT {% endcomment %}
-      <li class="nav-item active">
-      <a class="nav-link" href="{% url 'home' %}">Home</a> 
+      <li class="nav-item active"  >
+      <a class="nav-link font-weight-bold text-dark " href="{% url 'home' %}">Home</a> 
       </li>
 
      <li class="nav-item active">
-        <a class="nav-link" href="">About</a>
+        <a class="nav-link font-weight-bold text-dark" href="">About</a>
       </li> 
     </ul>
      {% comment %}  !LEFT {% endcomment %}
@@ -28,39 +28,39 @@
       {% if request.user.is_superuser %}
 
       <li class="nav-item active">
-        <a class="nav-link" href="/admin">Admin</a>
+        <a class="nav-link font-weight-bold text-dark" href="/admin">Admin</a>
     </li>
     <li class="nav-item active">
         
-        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+        <a class="nav-link font-weight-bold text-dark" href="{% url 'logout' %}">Log Out</a>
     </li>
     {% else %}   
        
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'logout'%}">Logout</a>
+        <a class="nav-link font-weight-bold text-dark" href="{% url 'logout'%}">Logout</a>
       </li>
 
       <li class="nav-item active">
        
-       <a class="nav-link" href="{% url 'profile'%}">Profile</a> 
+       <a class="nav-link font-weight-bold text-dark" href="{% url 'profile'%}">Profile</a> 
       </li>
       <li class="nav-item active">
        
-       <a class="nav-link" href="{% url 'add'%}">New Post</a> 
+       <a class="nav-link font-weight-bold text-dark" href="{% url 'add'%}">New Post</a> 
       </li>
 
       <li>
-        <a class="nav-link" href="">{{ request.user | capfirst }}</a>
+        <a class="nav-link ml-4 font-weight-bold text-dark" href="">{{ request.user | capfirst }}</a>
     </li>
 
       {% endif %}
       {% else %}
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'login' %}">Log In</a>
+        <a class="nav-link font-weight-bold text-dark" href="{% url 'login' %}">Log In</a>
       </li>
       
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'register' %}">Register</a>
+        <a class="nav-link font-weight-bold text-dark" href="{% url 'register' %}">Register</a>
       </li>
       {% endif %}
     </ul>
