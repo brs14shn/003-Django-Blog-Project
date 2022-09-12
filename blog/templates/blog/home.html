@@ -33,7 +33,7 @@
           <div class="user__info">
            <span class="card-text">{{ user}} | </span> 
             {% comment %} <small>{{ post.publish_date | date:'Y-m-d'}} - {{currendate}} ago</small> {% endcomment %}
-            <small>{{ post.publish_date }} ago</small>
+            <small>{{ post.publish_date | timesince }} ago</small>
           </div>
         </div>
         <a href="{% url 'detail' post.id %}" class="readmore"><button type="button" class="btn btn-primary mt-3">Details</button></a>
