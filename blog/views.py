@@ -30,7 +30,7 @@ def home(request):
     #     "form":form
     # }
     # return render(request, 'blog/home.html',context)
-
+#!  ---------ABOUT----------
 def about_page(request):
        return render(request, 'blog/about.html')
 
@@ -84,7 +84,23 @@ def post_detail(request, id):
             comment.user = request.user
             post.save()
             comment.save()
-            return redirect('detail', id=id)
+            return redirect('home', id=id)
     context = {
         'post':post, 'comment_form':comment_form, 'comments':comments}
     return render(request, 'blog/blog_detail.html', context)
+
+#!================================================================
+#**********************   DELETE    *******************************
+#!================================================================
+
+def post_delete(request,id):
+    post=Post.objects.get(id=id)
+
+    if request.method=="POST":
+        post.delete()
+
+        return redirect("home")
+        context={
+            "post":post
+        }
+    return render(request, 'blog/blog_delete.html', context)  

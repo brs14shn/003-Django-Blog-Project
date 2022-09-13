@@ -46,7 +46,7 @@
 
           <a href="{% url 'update' post.id %}" class="mr-5">
             <button class= "btn btn-warning">Update</button></a>
-          <a href="#" >
+          <a href="{% url 'delete' post.id %}" >
             <button class= "btn btn-danger">Delete</button></a> 
           {% endif %}
 

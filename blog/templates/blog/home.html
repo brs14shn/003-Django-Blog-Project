@@ -22,7 +22,7 @@
         <hr>
           
         <div class="card-body mb-auto">
-        <span class="card-title">{{ post.category | capfirst }}</span>
+        <span class="card-title" style="transition:transform 2s ease-in" >{{ post.category | capfirst }}</span>
         <br><br>
         <h4 class="card-title">{{post.title}}</h4>
         <p class="card-text">{{ post.content|truncatechars:60}}</p>
@@ -48,8 +48,12 @@
   </div> 
 
   <script>
+    {% comment %} const category=document.querySelector(".card-title");
+    category.addEventListener("click",(e)=>{
+    e.target.style.transform: rotateZ(180deg)} {% endcomment %}
+
     const card= document.querySelectorAll(".card").forEach((el)=>console.log(el))
-    addEventListener('click',(e)=>{
+    addEventListener('mouseover',(e)=>{
       e.target.style.transform = " scale(1)"; 
       e.target.style.color="pink"
      
