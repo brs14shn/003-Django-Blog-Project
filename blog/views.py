@@ -100,7 +100,7 @@ def post_delete(request,id):
         post.delete()
 
         return redirect("home")
-        context={
+    context={
             "post":post
         }
     return render(request, 'blog/blog_delete.html', context)  
