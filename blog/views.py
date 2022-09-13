@@ -84,7 +84,7 @@ def post_detail(request, id):
             comment.user = request.user
             post.save()
             comment.save()
-            return redirect('home', id=id)
+            return redirect('detail', id=id)
     context = {
         'post':post, 'comment_form':comment_form, 'comments':comments}
     return render(request, 'blog/blog_detail.html', context)
